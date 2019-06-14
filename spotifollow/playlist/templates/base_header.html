@@ -1,0 +1,52 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'playlist/style.css' %}">
+
+<nav class="primary">
+	{% block nav %}
+
+		{% if user.is_authenticated %}
+	      <link rel="stylesheet" type="text/css" href="{% static 'playlist/style.css' %}">
+
+	        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+	    <a class="navbar-brand" href="{% url 'index' %}">SpotiFollow</a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav mr-auto">
+	    </ul>
+	    <form action="{% url 'search:search' %}" class="form-inline my-2 my-lg-0" method="GET">
+	      {% csrf_token %}
+	      <input class="form-control mr-sm-2" type="search" placeholder="Playlist Title" aria-label="Search" name="title">
+	      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Find Playlist</button></a>
+	    </form>&nbsp;&nbsp;
+	    <a href="{% url 'logout' %}" class="header-link"><button type="button" class="btn btn-outline-secondary">
+	    Logout</button></a>
+	    </div>
+	  </nav>
+
+    	{% block sidenav %}
+    	{% endblock sidenav %}
+
+	    {% else %}
+
+	      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+	    <a class="navbar-brand" href="{% url 'index' %}">PlaylistPy</a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav mr-auto">
+	    </ul>
+	      <a href="{% url 'social:begin' 'spotify' %}" class="header-link">
+	      <button type="button" class="btn btn-outline-success">Login</button>
+	        </a>
+	    </div>
+	  </nav>
+
+	    {% endif %}
+
+	{% endblock nav %}
+</nav>

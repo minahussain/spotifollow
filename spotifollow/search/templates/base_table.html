@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% block section_head %}
+  {% endblock section_head %}
+  
+  <table class="table table-bordered">
+    <thead class="thread-dark">
+      <tr>
+        {% block table_head %}
+        {% endblock table_head %}
+      </tr>
+    </thead>
+    <tbody class="table-hover">
+    {% block table_body %}
+    {% endblock table_body %}
+  </tbody>
+  </table>
+{% endblock content %}

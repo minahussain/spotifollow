@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>SpotiFollow</h1>
+    <p>SpotiFollow lets you manipulate Spotify playlists you follow. Copy a playlist you like, remove songs you do not like, add songs you do. All the while, you're able to update the playlist whenever the creator adds new songs, without loosing your customization!</p>
+    <p>To get started, please log in.</p>
+    <p><a href="{% url 'social:begin' 'spotify' %}" class="header-link">
+    	<button type="button" class="btn btn-outline-success">Spotify</button>
+    </a></p>
+
+{% endblock content %}

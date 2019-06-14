@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header_include %}
+	{% include "playlist/playlist_header.html" with playlist_list=playlist_list %}
+{% endblock header_include %}
+
+
+{% block content %}
+	{% if not playlist_list %}
+		<h1>You have no playlists!</h1>
+		<a class="btn btn-primary" href="{% url 'get-playlists' %}">Add my playlists</button></a>
+	{% else %}
+		<p>Please refresh if you've added a playlist since you've last been here</p>
+		<a class="btn btn-primary" href="{% url 'get-playlists' %}">Refresh my playlists</button></a>
+	{% endif %}
+
+{% endblock %}
+

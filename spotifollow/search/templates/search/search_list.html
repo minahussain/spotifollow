@@ -1,0 +1,48 @@
+{% extends "base_table.html" %}
+
+{% block header_include %}
+  {% include 'playlist/playlist_header.html' with playlist_list=playlist_list %}
+{% endblock header_include %}
+
+{% block section_head %}
+  {% if search_list %}
+    <h2>We found the following public playlists</h2>
+  {% else %}
+    <h2>Sorry, we could not find any playlists matching that name.</h2>
+    <p>Try adding more key words to your search</p>
+  {% endif %}
+{% endblock section_head %}
+
+
+  {% block table_head %}
+    <th scope="col">Title</th>
+    <th scope="col">Author</th>
+    <th scope="col">Total Songs</th>
+    <th scope="col">Link It</th>
+  {% endblock table_head %}
+
+  {% block table_body %}
+    {% for search_obj in search_list %}
+      <tr scope="row" class="table-light">
+        <td><a href="{% url 'search:search-detail' search_obj.pk %}">{{ search_obj.title }}</a></td>
+        <td>{{ search_obj.author }}</td>
+        <td>{{ search_obj.total }}</td>
+        <td>
+        <form action="{% url 'search:link-playlist' %}" class="form-inline my-2 my-lg-0" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="playlist_id" value="{{ search_obj.playlist_id }}">
+          <input type="hidden" name="title" value="{{ search_obj.title }}">
+          <input type="hidden" name="author" value="{{ search_obj.author }}">
+          <input type="hidden" name="href" value="{{ search_obj.href }}">
+          <input type="hidden" name="tracks_href" value="{{ search_obj.tracks_href }}">
+          <select name="user_title">
+            <option value="">Link to Playlist</option>
+            {% for playlist in playlist_list %}
+              <option value="{{ playlist.title }}">{{ playlist.title }}</option>
+            {% endfor %}
+          </select>&nbsp;&nbsp;
+          <input type="submit" value="Submit" class="btn btn-light"></td>  
+        </form>
+      </tr>
+    {% endfor %}
+  {% endblock table_body %}

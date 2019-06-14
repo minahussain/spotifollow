@@ -1,0 +1,14 @@
+{% extends "base_table.html" %}
+
+{% block header_include %}
+  {% include "playlist/playlist_header.html" with playlist_list=playlist_list %}
+{% endblock header_include %}
+
+{% block section_head %}
+  <h1>{{ object.title }}</h1>
+  <h2>{{ object.author }} | {{ object.total }} Songs</h2>
+  <p><a href=""><button type="button" class="btn btn-success">Link to Other Playlist</button></a></p>
+  <p><a href=""><button type="button" class="btn btn-success">Open In Spotify</button></a></p>
+{% endblock section_head %}
+  
+  
