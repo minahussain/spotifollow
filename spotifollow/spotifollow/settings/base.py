@@ -25,7 +25,7 @@ SECRET_KEY = '0u*7$@l^o5qcpqy-&fk33d%qdp+gia#hep!*y!6f6z@eid)kr='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-52-36-44-48.us-west-2.compute.amazonaws.com', 'localhost']
+ALLOWED_HOSTS = ['3.87.170.188', 'ec2-3-87-170-188.compute-1.amazonaws.com', 'localhost']
 
 
 # Application definition
@@ -160,3 +160,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ubuntu/workspace/spoti_env/static/'
