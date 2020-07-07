@@ -20,12 +20,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '***'
+SECRET_KEY = '0u*7$@1^o5qcpqy-&fk33d%qdp+gia#hep!*y!6f6z@eid)kr='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.87.170.188', 'ec2-3-87-170-188.compute-1.amazonaws.com', 'localhost']
+ALLOWED_HOSTS = ['spotifollow.com', 'www.spotifollow.com', '34.199.97.215', 'ec2-34-199-97-215.compute-1.amazonaws.com']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -117,8 +122,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_SPOTIFY_KEY = '***'
-SOCIAL_AUTH_SPOTIFY_SECRET = '***'
+SOCIAL_AUTH_SPOTIFY_KEY = '5dddfa16a84c4893bafcb61321b056a2'
+SOCIAL_AUTH_SPOTIFY_SECRET = 'db42ac5f5890e497ca86420f5b1571400'
 SOCIAL_AUTH_SPOTIFY_SCOPE = ['playlist-modify-public', 'user-library-read']
 
 SOCIAL_AUTH_SPOTIFY_AUTH_EXTRA_ARGUMENTS = {'force_login': 1} 
