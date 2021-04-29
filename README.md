@@ -10,6 +10,32 @@ This web app was hosted on an AWS EC-2 instance which has been closed down for t
 
 The readme will be updated if it is back up.
 
+### Looks
+
+For now, you can see how it works with these fun screenshots!
+
+Landing page where you can sign in using Spotify authentication
+![Landing Page](docs/images/demo1.png)
+
+After signing in, you can view your playlists and search for other playlists to follow
+(I get creative with my playlist titles, what can I say)
+![Signed In](docs/images/demo2.png)
+
+After searching for a playlist (image below searched for "quiet ppl" playlist), you will be shown a list of matched playlists
+![Search for a Playlist](docs/images/demo3.png)
+
+You can select one of your playlists to follow
+![Follow from Search Dropdown](docs/images/demo4.png)
+![Follow from Search Selected](docs/images/demo5.png)
+
+And you'll be taken to your updated playlist 
+![Followed Playlist](docs/images/demo6.png)
+
+The green rows represent tracks that you added and are not on the playlist you're following. 
+The grayed out rows represent tracks that you removed from the playlist you're following.
+The white rows are tracks that you've kept from the playlist you're following.
+![Follow Playlist Colored Rows](docs/images/demo7.png)
+
 ## Built With
 
 * [Django](https://www.djangoproject.com)
