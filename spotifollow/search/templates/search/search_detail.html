@@ -6,9 +6,27 @@
 
 {% block section_head %}
   <h1>{{ object.title }}</h1>
-  <h2>{{ object.author }} | {{ object.total }} Songs</h2>
-  <p><a href=""><button type="button" class="btn btn-success">Link to Other Playlist</button></a></p>
+  <h2>{{ object.author }} | <b>{{ object.total }} Tracks</b></h2>
   <p><a href=""><button type="button" class="btn btn-success">Open In Spotify</button></a></p>
+  <p><form action="{% url 'search:link-playlist' %}" class="form-inline my-2 my-lg-0" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="playlist_id" value="{{ object.playlist_id }}">
+    <input type="hidden" name="title" value="{{ object.title }}">
+    <input type="hidden" name="author" value="{{ object.author }}">
+    <input type="hidden" name="href" value="{{ object.href }}">
+    <input type="hidden" name="tracks_href" value="{{ object.tracks_href }}">
+    <div class="input-group">
+      <select class="custom-select" id="selectLinkPlaylist" name="user_title">
+        <option value="">Choose Playlist...</option>
+        {% for playlist in playlist_list %}
+          <option value="{{ playlist.title }}">{{ playlist.title }}</option>
+        {% endfor %}
+      </select>
+      <div class="input-group-append">
+        <button class="btn btn-outline-success" type="submit">Follow</input>
+      </div>
+    </div>
+  </form></p>
 {% endblock section_head %}
   
   

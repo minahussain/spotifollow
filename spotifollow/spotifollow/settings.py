@@ -20,12 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0u*7$@l^o5qcpqy-&fk33d%qdp+gia#hep!*y!6f6z@eid)kr='
+keys = []
+with open('secret_keys.txt') as f:
+    for line in f:
+        keys.append(line.rstrip())
+SECRET_KEY = keys[0]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['ec2-52-36-44-48.us-west-2.compute.amazonaws.com', 'localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -118,8 +122,8 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-SOCIAL_AUTH_SPOTIFY_KEY = '5dddfa16a84c4893bafcb61321b056a2'
-SOCIAL_AUTH_SPOTIFY_SECRET = 'db42ac5f589e497ca86420f5b1571400'
+SOCIAL_AUTH_SPOTIFY_KEY = keys[1]
+SOCIAL_AUTH_SPOTIFY_SECRET = keys[2]
 SOCIAL_AUTH_SPOTIFY_SCOPE = ['playlist-modify-public', 'user-library-read']
 
 SOCIAL_AUTH_SPOTIFY_AUTH_EXTRA_ARGUMENTS = {'force_login': 1} 

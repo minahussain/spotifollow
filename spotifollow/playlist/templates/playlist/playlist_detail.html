@@ -5,15 +5,17 @@
 {% endblock header_include %}
 
 {% block content %}
-  <h1>{{ playlist.title }}</h1>
-  <h2>Total tracks: {{ playlist.tracks_count }} | {{ playlist.deleted_tracks_count }} deleted</h2>
+  <h3>{{ playlist.title }}</h3>
+  <h4><b>{{ playlist.tracks_count }} total tracks</b></h4>
   {% if playlist.linked %}
-    <h3>{{ playlist.origin_playlist.title }} by 
-      <a href="">{{ playlist.origin_playlist.author }}</a></h3>
-      <p><a href="{% url 'refresh' playlist.playlist_id %}"><button type="button" class="btn btn-primary">Refresh</button></a>&nbsp;&nbsp;
-      <a href="{% url 'unlink-list' playlist.playlist_id playlist.origin_playlist.playlist_id %}"><button type="button" class="btn btn-secondary">Unlink</button></a>
+    <h6>Added {{ playlist.added_tracks_count }} tracks | Removed {{ playlist.deleted_tracks_count }} tracks</h6>
+    <h6>Follows Playlist:
+      <a href="{% url 'playlist-detail' playlist.origin_playlist.playlist_id %}">{{ playlist.origin_playlist.title}} by {{ playlist.origin_playlist.author }}</a>
+      ({{ playlist.origin_playlist.tracks_count }} total tracks)</h6>
+      <p><a href="{% url 'refresh' playlist.playlist_id %}"><button type="button" class="btn btn-success">Refresh</button></a>&nbsp;&nbsp;
+      <a href="{% url 'unlink-list' playlist.playlist_id playlist.origin_playlist.playlist_id %}"><button type="button" class="btn btn-secondary">Unfollow</button></a>
   {% else %}
-    <p><a href="{% url 'refresh' playlist.playlist_id %}"><button type="button" class="btn btn-primary">Refresh</button></a>
+    <p><a href="{% url 'refresh' playlist.playlist_id %}"><button type="button" class="btn btn-success">Refresh</button></a>
   {% endif %}
   
   <table class="table table-bordered">
@@ -27,7 +29,7 @@
     <tbody class="table-hover">
     {% for track in playlist.trackinstance_set.all %}
       {% if track.is_added %}
-        <tr scope="row" class="table-primary">
+        <tr scope="row" class="table-success">
       {% elif track.is_deleted %}
         <tr scope="row" class="table-secondary">
       {% else %}
@@ -42,9 +44,9 @@
           <a href="{% url 'add' playlist.playlist_id track.track_id %}"><button type="button" class="btn btn-light">Re-Add</button></a>
       {% else %}
         {% if playlist.linked %}
-        <a href="{% url 'delete' playlist.playlist_id track.track_id %}"><button type="button" class="btn btn-dark">Delete</button></a>
+          <a href="{% url 'delete' playlist.playlist_id track.track_id %}"><button type="button" class="btn btn-dark">Delete</button></a>
         {% else %}
-        <a href="{% url 'delete' playlist.playlist_id track.track_id %}"><button type="button" class="btn btn-dark" disabled>Delete</button></a>
+          <a href="{% url 'delete' playlist.playlist_id track.track_id %}"><button type="button" class="btn btn-dark" disabled>Delete</button></a>
         {% endif %}
       {% endif %}
       </td> 
@@ -52,6 +54,5 @@
     {% endfor %}
   </tbody>
   </table>
-
-
+  
 {% endblock %}

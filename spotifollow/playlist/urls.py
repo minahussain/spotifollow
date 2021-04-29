@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
 	path('', views.index, name='index'),
-	path(r'^logout/$', views.logout, name='logout'),
+	path('', views.logout, name='logout'),
 	path('delete/<list_id>/<track_id>', views.delete_track, name='delete'),
 	path('add/<list_id>/<track_id>', views.add_track, name='add'),
 	path('playlist/<list_id>/refresh/', views.refresh_list, name='refresh'),

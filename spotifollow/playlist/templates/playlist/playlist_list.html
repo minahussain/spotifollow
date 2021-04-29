@@ -7,12 +7,13 @@
 
 {% block content %}
 	{% if not playlist_list %}
-		<h1>You have no playlists!</h1>
-		<a class="btn btn-primary" href="{% url 'get-playlists' %}">Add my playlists</button></a>
+		<p>You have no playlists!</p>
+		<a class="btn btn-success" href="{% url 'get-playlists' %}">Add my playlists</button></a>
 	{% else %}
-		<p>Please refresh if you've added a playlist since you've last been here</p>
-		<a class="btn btn-primary" href="{% url 'get-playlists' %}">Refresh my playlists</button></a>
+		<p>Use the search bar above to search for a playlist to follow.</p>
+		<p></p>
+		<p>Your playlists are listed on the left side bar. Please refresh if you've added a playlist since you've last been here.</p>
+		<a class="btn btn-success" href="{% url 'get-playlists' %}">Refresh my playlists</button></a>
 	{% endif %}
-
 {% endblock %}
 

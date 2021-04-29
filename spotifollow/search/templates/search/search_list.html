@@ -6,9 +6,9 @@
 
 {% block section_head %}
   {% if search_list %}
-    <h2>We found the following public playlists</h2>
+    <h4>Found the following public playlists</h4>
   {% else %}
-    <h2>Sorry, we could not find any playlists matching that name.</h2>
+    <h4>Sorry, we could not find any playlists matching that name</h4>
     <p>Try adding more key words to your search</p>
   {% endif %}
 {% endblock section_head %}
@@ -18,7 +18,7 @@
     <th scope="col">Title</th>
     <th scope="col">Author</th>
     <th scope="col">Total Songs</th>
-    <th scope="col">Link It</th>
+    <th scope="col">Follow</th>
   {% endblock table_head %}
 
   {% block table_body %}
@@ -35,14 +35,18 @@
           <input type="hidden" name="author" value="{{ search_obj.author }}">
           <input type="hidden" name="href" value="{{ search_obj.href }}">
           <input type="hidden" name="tracks_href" value="{{ search_obj.tracks_href }}">
-          <select name="user_title">
-            <option value="">Link to Playlist</option>
+          <div class="input-group">
+            <select class="custom-select" id="selectLinkPlaylist" name="user_title">
+            <option value="">Choose...</option>
             {% for playlist in playlist_list %}
               <option value="{{ playlist.title }}">{{ playlist.title }}</option>
             {% endfor %}
-          </select>&nbsp;&nbsp;
-          <input type="submit" value="Submit" class="btn btn-light"></td>  
-        </form>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit">Follow</input>
+          </div>
+        </div>
+      </form>
       </tr>
     {% endfor %}
   {% endblock table_body %}

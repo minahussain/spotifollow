@@ -2,18 +2,16 @@
 {% load static %}
 
 {% block sidenav %}
-<div class="sidenav">
-	<h2>Playlists</h2>
 	{% if playlist_list %}
+		<h3>Playlists</h3>
 		<ul class="nav flex-column">
 		{% for playlist in playlist_list %}
 			<li class="nav-item">
-  			<a class="nav-link" href="{% url 'playlist-detail' playlist.playlist_id %}">{{ playlist.title }}</a>
-  			</li>
-	  	{% endfor %}
-  		</ul>
-  	{% else %}
-  		<h5>None</h5>
-  	{% endif %}
-</div>
+				<a class="nav-link" href="{% url 'playlist-detail' playlist.playlist_id %}">{{ playlist.title }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<h3>Playlists</h3>
+	{% endif %}
 {% endblock sidenav %}

@@ -2,10 +2,16 @@
 
 {% block content %}
     <h1>SpotiFollow</h1>
-    <p>SpotiFollow lets you manipulate Spotify playlists you follow. Copy a playlist you like, remove songs you do not like, add songs you do. All the while, you're able to update the playlist whenever the creator adds new songs, without loosing your customization!</p>
-    <p>To get started, please log in.</p>
+    <p>SpotiFollow lets your playlist <i>follow</i> another Spotify playlist.</p>
+    <p>Copy a playlist you like, remove songs you do not like, add songs you do. Here, you're able to refresh to update the playlist to include songs the playlist creator may have added, without loosing your customization!</p>
+    <p>Let's get started!</p>
     <p><a href="{% url 'social:begin' 'spotify' %}" class="header-link">
-    	<button type="button" class="btn btn-outline-success">Spotify</button>
+    	<button type="button" class="btn btn-outline-success">
+            {% if user.is_authenticated %}
+                Enter
+            {% else %}
+                Login to Spotify
+            {% endif %}
+        </button>
     </a></p>
-
 {% endblock content %}
