@@ -1,0 +1,12 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# secret
+db.sqlite3
+spotifollow/secret_keys.txt
+*.pem
+*.ppk
