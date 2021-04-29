@@ -31,9 +31,9 @@ You can select one of your playlists to follow
 And you'll be taken to your updated playlist 
 ![Followed Playlist](docs/images/demo6.PNG)
 
-The green rows represent tracks that you added and are not on the playlist you're following. 
-The grayed out rows represent tracks that you removed from the playlist you're following.
+The green rows represent tracks that you added and are not on the playlist you're following.
 The white rows are tracks that you've kept from the playlist you're following.
+The grayed out rows represent tracks that you removed from the playlist you're following.
 ![Follow Playlist Colored Rows](docs/images/demo7.PNG)
 
 ## Built With
