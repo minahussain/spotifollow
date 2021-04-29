@@ -36,6 +36,9 @@ The white rows are tracks that you've kept from the playlist you're following.
 The grayed out rows represent tracks that you removed from the playlist you're following.
 ![Follow Playlist Colored Rows](docs/images/demo7.PNG)
 
+Et viola! You should see the same reflected in the Spotify app
+![Spotify App](docs/images/demo8.PNG)
+
 ## Built With
 
 * [Django](https://www.djangoproject.com)
