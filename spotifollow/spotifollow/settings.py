@@ -130,7 +130,7 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
 # Verifies that the social association can be disconnected from the current
 # user (ensure that the user login mechanism is not compromised by this
 # disconnection).
-'social.pipeline.disconnect.allowed_to_disconnect',
+#'social.pipeline.disconnect.allowed_to_disconnect',
 
 # Collects the social associations to disconnect.
 'social.pipeline.disconnect.get_entries',

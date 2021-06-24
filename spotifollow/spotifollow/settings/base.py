@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,16 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-keys = []
-with open('secret_keys.txt') as f:
-    for line in f:
-        keys.append(str(line.rstrip()))
-SECRET_KEY = keys[0]
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['spotifollow.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,8 +120,8 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-SOCIAL_AUTH_SPOTIFY_KEY = keys[1]
-SOCIAL_AUTH_SPOTIFY_SECRET = keys[2]
+SOCIAL_AUTH_SPOTIFY_KEY = config('SOCIAL_AUTH_SPOTIFY_KEY')
+SOCIAL_AUTH_SPOTIFY_SECRET = config('SOCIAL_AUTH_SPOTIFY_SECRET')
 SOCIAL_AUTH_SPOTIFY_SCOPE = ['playlist-modify-public', 'user-library-read']
 
 SOCIAL_AUTH_SPOTIFY_AUTH_EXTRA_ARGUMENTS = {'force_login': 1} 
@@ -144,8 +142,6 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
 'social.pipeline.disconnect.disconnect',
 )
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -159,9 +155,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-#STATIC_ROOT = '/home/ubuntu/workspace/spoti_env/static/'
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
