@@ -5,8 +5,11 @@
 *.so
 *.dylib
 
+#logs
+*.log
+
 # secret
+.env
 db.sqlite3
-spotifollow/secret_keys.txt
 *.pem
 *.ppk
