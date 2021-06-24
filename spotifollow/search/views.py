@@ -43,7 +43,11 @@ def link_playlists(request):
 			if user_playlist and origin_playlist:
 				refresh_list(request, origin_playlist.playlist_id)
 				user_playlist.set_origin_playlist(origin_playlist)
-				return redirect(reverse('playlist-detail', kwargs={'list_id':user_playlist.playlist_id}))
+				try:
+					redirect_url = reverse('playlist-detail', kwargs={'list_id':user_playlist.playlist_id})
+					return redirect(redirect_url)
+				except NoReverseMatch:
+					pass
 		else:
 			try:
 				user_playlist = Playlist.objects.get(title=form.data['user_title'])

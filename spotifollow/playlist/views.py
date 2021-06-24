@@ -22,13 +22,19 @@ import sys
 
 from social_django.utils import load_strategy
 
+import logging
+logger = logging.getLogger('app_api') #from LOGGING.loggers in settings.py
+
 '''
 	Tools
 '''
 def process_request(request, type, url, body=''):
 	if request.user:
+		logger.error('processing request')
 		social = request.user.social_auth.get(provider='spotify')
+		logger.error(social)
 		tok = social.get_access_token(load_strategy())
+		logger.error(tok)
 		head = {'Authorization': 'Bearer ' + tok} 
 		if type.upper() == 'GET':
 			response = requests.get(url, headers=head)
