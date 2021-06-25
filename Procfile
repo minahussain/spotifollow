@@ -1,1 +1,1 @@
-web: gunicorn spotifollow.spotifollow.wsgi --log-file -
+web: gunicorn --pythonpath spotifollow spotifollow.wsgi --log-file -
