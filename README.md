@@ -6,9 +6,9 @@ A copy of their playlist will be made to your account so you can add or remove s
 
 ## Getting Started
 
-This web app was hosted on an AWS EC-2 instance which has been closed down for the meantime.
+This web app was hosted on an AWS EC-2 instance which has been closed down for the meantime because it was costing $$$ :moneybag:
 
-The readme will be updated if it is back up.
+The web app is now on Heroku! 🎉
 
 ### Looks
 
