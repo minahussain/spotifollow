@@ -53,4 +53,4 @@ Et viola! You should see the same reflected in the Spotify app
 
 # Author
 
-* **Samina Hussain**
+* **Mina Hussain**
