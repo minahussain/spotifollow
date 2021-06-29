@@ -10,6 +10,12 @@ This web app was hosted on an AWS EC-2 instance which has been closed down for t
 
 The web app is now on Heroku! 🎉
 
+## TODO
+
+- Add loader while page + playlists load
+- Remove left side playlist menu on landing page
+- Collapse left side playlist menu
+
 ### Looks
 
 For now, you can see how it works with these fun screenshots!
