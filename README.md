@@ -7,14 +7,14 @@ A copy of their playlist will be made to your account so you can add or remove s
 
 ## ℹ️ Info
 
-This web app was hosted on an AWS EC-2 instance which has been closed down for the meantime because it was costing $$$ :moneybag:
+This web app was hosted on an AWS EC-2 instance which has been closed down for the meantime because it was costing moneys :moneybag:
 
-*Update:* the Spotifollow web app is now on Heroku! 🎉
+- *Update 6-2021:* the Spotifollow web app is now on Heroku! 🎉
 
 
 ### 👀 Looks
 
-For now, you can see how it works with these fun screenshots!
+You can see how it works with these fun screenshots!
 
 Landing page where you can sign in using Spotify authentication
 ![Landing Page](docs/images/demo1.PNG)
@@ -57,6 +57,6 @@ Et viola! You should see the same reflected in the Spotify app
 * [Heroku](https://heroku.com)
 
 
-# 😊 Author
+## 😊 Author
 
 * **Mina Hussain**
