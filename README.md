@@ -4,19 +4,15 @@ This web app allows users to sign in with their Spotify account and "follow" ano
 
 A copy of their playlist will be made to your account so you can add or remove songs at your leisure. On the web app, users can update the playlist to match any changes made to the original playlist, while maintaining any of your removals or additions.
 
-## Getting Started
+
+## ℹ️ Info
 
 This web app was hosted on an AWS EC-2 instance which has been closed down for the meantime because it was costing $$$ :moneybag:
 
-The web app is now on Heroku! 🎉
+*Update:* the Spotifollow web app is now on Heroku! 🎉
 
-## TODO
 
-- Add loader while page + playlists load
-- Remove left side playlist menu on landing page
-- Collapse left side playlist menu
-
-### Looks
+### 👀 Looks
 
 For now, you can see how it works with these fun screenshots!
 
@@ -45,12 +41,22 @@ The grayed out rows represent tracks that you removed from the playlist you're f
 Et viola! You should see the same reflected in the Spotify app
 ![Spotify App](docs/images/demo8.PNG)
 
-## Built With
+
+## ✏️ TODO
+
+- Add loader while page + playlists load
+- Remove left side playlist menu on landing page
+- Collapse left side playlist menu
+
+
+## 🛠️ Built With
 
 * [Django](https://www.djangoproject.com)
 * [Nginx](https://www.nginx.com)
 * [Gunicorn](https://gunicorn.org)
+* [Heroku](https://heroku.com)
 
-# Author
+
+# 😊 Author
 
 * **Mina Hussain**
